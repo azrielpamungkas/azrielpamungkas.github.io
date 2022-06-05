@@ -1,4 +1,4 @@
-const base_url = "";
+const base_url = "https://f5e3-125-166-233-144.ap.ngrok.io";
 navigator.geolocation.getCurrentPosition((pos) => {
   gps = { lat: pos.coords.latitude, lng: pos.coords.longitude };
   document.getElementById("locationStatus").innerHTML = "GPS Anda Aktif";
