@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="mx-auto w-96">
+    <a href="index.html" class="flex back bg-[#6A64F1] h-10">
+      <i class="text-white fa-solid fa-angle-left mt-3 px-5"></i>
+    </a>
+
+    <section class="bg-[#EBEBFF] py-5 px-5 h-screen">
+      <div id="detailClass" class="mb-6">
+        <h1 id="subject" class="text-2xl">
+          <div class="animate-pulse w-[40%] h-2 my-2 bg-gray-400 rounded"></div>
+        </h1>
+        <span id="teacher" class="text-sm text-neutral-600">
+          <div class="animate-pulse w-[60%] h-2 my-2 bg-gray-400 rounded"></div>
+        </span>
+        <span id="time" class="block text-sm text-neutral-600">
+          <div class="animate-pulse w-[20%] h-2 my-2 bg-gray-400 rounded"></div>
+        </span>
+      </div>
+
+      <div
+        class="hidden bg-white mt-40 p-2 sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none"
+      >
+        <div class="flex flex-col flex-1 gap-5 sm:p-2">
+          <div class="flex flex-1 flex-col gap-3">
+            <div
+              class="bg-gray-200 w-full animate-pulse h-14 rounded-2xl"
+            ></div>
+            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
+            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
+            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
+            <div class="bg-gray-200 w-full animate-pulse h-3 rounded-2xl"></div>
+          </div>
+          <div class="mt-auto flex gap-3">
+            <div class="bg-gray-200 w-20 h-8 animate-pulse rounded-full"></div>
+            <div class="bg-gray-200 w-20 h-8 animate-pulse rounded-full"></div>
+            <div
+              class="bg-gray-200 w-20 h-8 animate-pulse rounded-full ml-auto"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full">
+        <div class="inline-flex items-center bg-white leading-none text-purple-600 rounded-full p-2 w-full shadow text-sm">
+          <span class="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center text-">Info</span>
+          <span id="locationStatus" class="inline-flex px-2">GPS anda belum aktif</span>
+        </div>
+
+      <div
+        id="alertAlert"
+        class="hidden mt-3 py-3 px-5 bg-red-100 text-red-900 text-sm rounded-md border border-red-200 flex items-center"
+        role="alert"
+      >
+        <div class="w-4 mr-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"
+            />
+          </svg>
+        </div>
+        <span id="alert">alert</span>
+      </div>
+
+      
+      <div id="alertAlertSuccess" class="hidden mt-3 py-3 px-5 mb-4 bg-green-100 text-green-900 text-sm rounded-md border border-green-200 flex items-center" role="alert">
+        <div class="w-4 mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+            </svg>
+        </div>
+        <span id="alertSuccess">alert succes</span>
+    </div>
+
+      <main class="mt-7">
+        <div
+          id="alreadyPresence"
+          class="hidden bg-white rounded p-6 md:mx-auto"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="text-green-600 w-16 h-16 mx-auto my-6"
+          >
+            <path
+              fill="currentColor"
+              d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
+            ></path>
+          </svg>
+          <div class="text-center">
+            <h3
+              class="md:text-2xl text-base text-gray-900 font-semibold text-center"
+            >
+              Presence Done!
+            </h3>
+            <p class="text-gray-600 my-2">
+              Thank you for completing your Attendace.
+            </p>
+            <p>Have a great day!</p>
+            <div class="py-10 text-center">
+              <a
+                href="index.html"
+                class="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3"
+              >
+                GO BACK
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div id="attendaceDiv" class="hidden flex items-center justify-center">
+        <!-- Author: FormBold Team -->
+        <!-- Learn More: https://formbold.com -->
+        <div class="mx-auto w-full max-w-[800px]">
+          <form id="attendanceForm">
+            <div class="mb-5">
+              <label
+                for="toke "
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Token
+              </label>
+              <input
+                type="textarea"
+                name="token"
+                id="token"
+                placeholder="Token"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              />
+            </div>
+            <div class="mb-5">
+              <label
+                for="detail"
+                class="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Kegiatan
+              </label>
+              <textarea
+                rows="4"
+                name="detail"
+                id="detail"
+                placeholder="Kegiatan pada hari ini"
+                class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              ></textarea>
+            </div>
+            <div>
+              <button
+                class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 w-full px-8 text-base font-semibold text-white outline-none"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script src="absen.js"></script>
+  </body>
+</html>
