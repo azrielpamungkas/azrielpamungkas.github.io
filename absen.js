@@ -6,7 +6,7 @@ navigator.geolocation.getCurrentPosition((pos) => {
   // GET pertama kali untuk checking
   fetch(`${base_url}/student/submit/`, {
     headers: {
-      Authorization: "Token 111e5bd4f219e4865121bf78d1b1370a1190f0ec",
+      Authorization: "Token 2171ed5591d71b24e7b88158412aadd9b2a6c1a5",
     },
   })
     .then(function (response) {
@@ -57,7 +57,7 @@ navigator.geolocation.getCurrentPosition((pos) => {
         }),
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Token 111e5bd4f219e4865121bf78d1b1370a1190f0ec",
+          Authorization: "Token 2171ed5591d71b24e7b88158412aadd9b2a6c1a5",
         },
       })
         .then(function (response) {
