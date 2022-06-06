@@ -1,4 +1,4 @@
-const base_url = "http://localhost:8000";
+const base_url = "http://18.141.198.210:8000";
 navigator.geolocation.getCurrentPosition((pos) => {
   gps = { lat: pos.coords.latitude, lng: pos.coords.longitude };
   document.getElementById("locationStatus").innerHTML =

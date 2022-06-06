@@ -1,4 +1,4 @@
-fetch("http://localhost:8000/student/", {
+fetch("http://18.141.198.210:8000/student/", {
   headers: {
     Authorization: "Token 111e5bd4f219e4865121bf78d1b1370a1190f0ec",
   },
