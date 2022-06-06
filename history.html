@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="mx-auto w-96 overflow-y-hidden">
+    <a href="index.html" class="flex back bg-[#6A64F1] h-10">
+      <i class="text-white fa-solid fa-angle-left mt-3 px-5"></i>
+    </a>
+
+    <main class="bg-[#EBEBFF] py-5 px-5 h-screen overflow-y-scroll">
+      <div class="bg-white relative shadow rounded-lg mx-auto">
+        <div class="flex justify-center"></div>
+
+        <div class="mt-5">
+          <h1 class="font-bold text-center text-3xl text-gray-900">
+            Riwayat Absensi
+          </h1>
+
+          <div class="w-full my-5">
+            <div
+              id="history"
+              class="mt-5 w-full flex flex-col items-center overflow-hidden text-sm"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      const base_url = "https://c4fd-114-125-110-24.ap.ngrok.io";
+      fetch(`${base_url}/student/history/`, {
+        headers: {
+          Authorization: "Token 111e5bd4f219e4865121bf78d1b1370a1190f0ec",
+        },
+      })
+        .then(function (response) {
+          // The API call was successful!
+          if (response.ok) {
+            return response.json();
+          } else {
+            return Promise.reject(response);
+          }
+        })
+        .then(function (data) {
+          // This is the JSON from our response
+          console.log(data);
+          // console.log(data.data.lectures);
+          if (Object.keys(data.data).length !== 0) {
+            for (let key in data.data) {
+              //   var kelas = data.data.lectures[key];
+              console.log(key, data.data[key]);
+              if (data.data[key].status === "HADIR") {
+                var icon = `<i class="mdi mdi-check-outline mdi-18px mx-1 text-green-500"
+                ></i>`;
+              } else if (data.data[key].status === "ALPHA") {
+                var icon = `<i
+                  class="mdi mdi-alpha-a-circle text-[19px] mx-1 text-red-500"
+                ></i>`;
+              } else {
+                var icon = `<i class="mdi mdi-alpha-i-circle text-[19px] mx-1 text-yellow-500"></i>`;
+              }
+              document.getElementById("history").innerHTML += `<span
+                class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150"
+              >
+              ${icon}
+              ${data.data[key].subject}
+                <span class="text-gray-500 text-xs">${data.data[key].date}
+</span>
+              </span>
+            `;
+            }
+          } else {
+            document.getElementById("history").innerHTML += `<span
+                class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150"
+              > Belum adad riwayat absensi
+              </span>
+            `;
+          }
+        })
+        .catch(function (err) {
+          // There was an error
+          console.warn("Something went wrong.", err);
+        });
+    </script>
+  </body>
+</html>

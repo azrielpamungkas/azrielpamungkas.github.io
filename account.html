@@ -14,10 +14,33 @@
   </head>
   <body class="mx-auto w-96 overflow-y-hidden">
     <main class="bg-[#EBEBFF] py-5 px-5 h-screen overflow-y-scroll">
-      <h1 class="text-[16px]">Pelajaran Hari ini</h1>
+      <div class="bg-white relative shadow rounded-lg mx-auto">
+        <div class="flex justify-center">
+          <img
+            src="#"
+            alt=""
+            class="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110"
+          />
+        </div>
 
-      <div id="presenceList"></div>
+        <div class="mt-16">
+          <h1 class="font-bold text-center text-3xl text-gray-900">
+            Azriel Sebastian Pamungkas
+          </h1>
 
+          <div class="w-full my-5">
+            <h3 class="text-sm text-bold text-gray-900 text-left px-6">
+              Recent Activites
+            </h3>
+            <div
+              id="history"
+              class="mt-5 w-full flex flex-col items-center overflow-hidden text-sm"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- nav -->
       <!-- MDI Icons -->
       <link
         rel="stylesheet"
@@ -55,11 +78,14 @@
 
             <!-- Item #2 -->
             <div class="flex group">
-              <a class="px-3 py-2 text-indigo-800 hover:text-indigo-800">
+              <a
+                href="presence.html"
+                class="px-3 py-2 text-indigo-400 hover:text-indigo-800"
+              >
                 <span class="flex flex-col items-center">
                   <!-- Icon -->
                   <i
-                    class="mdi mdi-note-edit-outline mdi-24px mx-1 text-indigo-800 group-hover:text-indigo-800 transition-color duration-200"
+                    class="mdi mdi-note-edit-outline mdi-24px mx-1 text-indigo-400 group-hover:text-indigo-800 transition-color duration-200"
                   ></i>
 
                   <!-- Text -->
@@ -69,7 +95,7 @@
 
                   <!-- Focus Dot -->
                   <span
-                    class="h-1 w-4 bg-indigo-500 rounded-full group-hover:bg-indigo-500 transition-all duration-150 delay-100"
+                    class="h-2 w-2 rounded-full group-hover:bg-indigo-500 transition-all duration-150 delay-100"
                   ></span>
                 </span>
               </a>
@@ -102,14 +128,11 @@
 
             <!-- Item #5 -->
             <div class="flex group">
-              <a
-                href="account.html"
-                class="px-3 py-2 text-indigo-400 hover:text-indigo-800"
-              >
+              <a class="px-3 py-2 text-indigo-800 hover:text-indigo-800">
                 <span class="flex flex-col items-center">
                   <!-- Icon -->
                   <i
-                    class="mdi mdi-account-circle-outline mdi-24px mx-1 text-indigo-400 group-hover:text-indigo-800 transition-color duration-200"
+                    class="mdi mdi-account-circle-outline mdi-24px mx-1 text-indigo-800 group-hover:text-indigo-800 transition-color duration-200"
                   ></i>
 
                   <!-- Text -->
@@ -119,7 +142,7 @@
 
                   <!-- Focus Dot -->
                   <span
-                    class="h-2 w-2 rounded-full group-hover:bg-indigo-500 transition-all duration-150 delay-100"
+                    class="h-1 w-4 bg-indigo-800 rounded-full group-hover:bg-indigo-500 transition-all duration-150 delay-100"
                   ></span>
                 </span>
               </a>
@@ -127,10 +150,11 @@
           </div>
         </div>
       </div>
+      <!-- endnav -->
     </main>
     <script>
       const base_url = "https://c4fd-114-125-110-24.ap.ngrok.io";
-      fetch(`${base_url}/student/presences/`, {
+      fetch(`${base_url}/student/history/`, {
         headers: {
           Authorization: "Token 111e5bd4f219e4865121bf78d1b1370a1190f0ec",
         },
@@ -145,31 +169,38 @@
         })
         .then(function (data) {
           // This is the JSON from our response
-          console.log(data.data.lectures);
-          for (let key in data.data.lectures) {
-            var kelas = data.data.lectures[key];
-            document.getElementById("presenceList").innerHTML += `
-          <a href="absen.html">
-        <div
-          id="current_class"
-          class="py-4 px-8 bg-indigo-700 shadow-lg rounded-lg my-5"
-        >
-          <div>
-            <h2 id="subject" class="text-white text-[16px] font-semibold">
-              ${kelas.name}
-            </h2>
-            <h2 class="mt-2 text-white" id="time">
-              ${kelas.start} - ${kelas.end} WIB
-            </h2>
-          </div>
-          <div class="flex justify-end mt-4">
-            <a id="teacher" href="#" class="text-sm font-medium text-white">
-              ${kelas.teacher}
-            </a>
-          </div>
-        </div>
-      </a>
-          `;
+          console.log(data);
+          // console.log(data.data.lectures);
+          if (Object.keys(data.data).length !== 0) {
+            for (let key in data.data) {
+              //   var kelas = data.data.lectures[key];
+              console.log(key, data.data[key]);
+              if (data.data[key].status === "HADIR") {
+                var icon = `<i class="mdi mdi-check-outline mdi-18px mx-1 text-green-500"
+                ></i>`;
+              } else if (data.data[key].status === "ALPHA") {
+                var icon = `<i
+                  class="mdi mdi-alpha-a-circle text-[19px] mx-1 text-red-500"
+                ></i>`;
+              } else {
+                var icon = `<i class="mdi mdi-alpha-i-circle text-[19px] mx-1 text-yellow-500"></i>`;
+              }
+              document.getElementById("history").innerHTML += `<span
+                class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150"
+              >
+              ${icon}
+              ${data.data[key].subject}
+                <span class="text-gray-500 text-xs">${data.data[key].date}
+</span>
+              </span>
+            `;
+            }
+          } else {
+            document.getElementById("history").innerHTML += `<span
+                class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150"
+              > Belum adad riwayat absensi
+              </span>
+            `;
           }
         })
         .catch(function (err) {
