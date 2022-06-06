@@ -1,7 +1,8 @@
-const base_url = "https://c4fd-114-125-110-24.ap.ngrok.io";
+const base_url = "http://localhost:8000";
 navigator.geolocation.getCurrentPosition((pos) => {
   gps = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-  document.getElementById("locationStatus").innerHTML = "GPS Anda Aktif";
+  document.getElementById("locationStatus").innerHTML =
+    "Dapat mengakses lokasi anda";
   // GET pertama kali untuk checking
   fetch(`${base_url}/student/submit/`, {
     headers: {

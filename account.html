@@ -8,29 +8,23 @@
     />
     <title>Profile - SiAmaWolu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
   </head>
   <body class="mx-auto overflow-y-hidden min-w-[320px] max-w-[420px]">
     <main class="bg-[#EBEBFF] py-5 px-5 h-screen overflow-y-scroll">
-      <div class="bg-white relative shadow rounded-lg mx-auto">
+      <div class="bg-white mt-20 relative shadow rounded-lg mx-auto">
         <div class="flex justify-center">
           <img
-            src="#"
+            src="https://i1.sndcdn.com/artworks-000069280530-9e6rnp-t500x500.jpg"
             alt=""
             class="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110"
           />
         </div>
 
         <div class="mt-16">
-          <h1 class="font-bold text-center text-3xl text-gray-900">
-            Azriel Sebastian Pamungkas
-          </h1>
+          <h1
+            id="accountName"
+            class="font-bold text-center text-3xl text-gray-900"
+          ></h1>
 
           <div class="w-full my-5">
             <h3 class="text-sm text-bold text-gray-900 text-left px-6">
@@ -51,7 +45,7 @@
         href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css"
       />
 
-      <div class="flex items-center justify-center h-[50%] w-full">
+      <div class="flex items-center justify-center w-full">
         <!-- Navigation Bar -->
         <div class="fixed bottom-2 px-2 bg-white shadow-lg rounded-2xl">
           <div class="flex flex-row space-x-6">
@@ -108,7 +102,7 @@
             <!-- Item #3 Active -->
             <div class="flex group">
               <a
-                href="#"
+                href="statistic.html"
                 class="px-3 py-2 text-indigo-400 hover:text-indigo-800"
               >
                 <span class="flex flex-col items-center">
@@ -157,7 +151,7 @@
       <!-- endnav -->
     </main>
     <script>
-      const base_url = "https://c4fd-114-125-110-24.ap.ngrok.io";
+      const base_url = "http://localhost:8000";
       fetch(`${base_url}/student/history/`, {
         headers: {
           Authorization: "Token 111e5bd4f219e4865121bf78d1b1370a1190f0ec",
@@ -175,36 +169,37 @@
           // This is the JSON from our response
           console.log(data);
           // console.log(data.data.lectures);
+          document.getElementById("accountName").innerText = data.data[1].name;
           if (Object.keys(data.data).length !== 0) {
             for (let key in data.data) {
               //   var kelas = data.data.lectures[key];
               console.log(key, data.data[key]);
               if (data.data[key].status === "HADIR") {
                 var icon = `<i class="mdi mdi-check-outline mdi-18px mx-1 text-green-500"
-                ></i>`;
+                      ></i>`;
               } else if (data.data[key].status === "ALPHA") {
                 var icon = `<i
-                  class="mdi mdi-alpha-a-circle text-[19px] mx-1 text-red-500"
-                ></i>`;
+                        class="mdi mdi-alpha-a-circle text-[19px] mx-1 text-red-500"
+                      ></i>`;
               } else {
                 var icon = `<i class="mdi mdi-alpha-i-circle text-[19px] mx-1 text-yellow-500"></i>`;
               }
               document.getElementById("history").innerHTML += `<span
-                class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150"
-              >
-              ${icon}
-              ${data.data[key].subject}
-                <span class="text-gray-500 text-xs">${data.data[key].date}
-</span>
-              </span>
-            `;
+                      class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150"
+                    >
+                    ${icon}
+                    ${data.data[key].subject}
+                      <span class="text-gray-500 text-xs">${data.data[key].date}
+      </span>
+                    </span>
+                  `;
             }
           } else {
             document.getElementById("history").innerHTML += `<span
-                class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150"
-              > Belum adad riwayat absensi
-              </span>
-            `;
+                      class="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150"
+                    > Belum adad riwayat absensi
+                    </span>
+                  `;
           }
         })
         .catch(function (err) {

@@ -8,13 +8,6 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Presence - SiAmaWolu</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
   </head>
   <body class="mx-auto overflow-y-hidden min-w-[320px] max-w-[420px]">
     <main class="bg-[#EBEBFF] py-5 px-5 h-screen overflow-y-scroll">
@@ -28,7 +21,7 @@
         href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css"
       />
 
-      <div class="flex items-center justify-center h-[50%] w-full">
+      <div class="flex items-center justify-center w-full">
         <!-- Navigation Bar -->
         <div class="fixed bottom-2 px-2 bg-white shadow-lg rounded-2xl">
           <div class="flex flex-row space-x-6">
@@ -82,7 +75,7 @@
             <!-- Item #3 Active -->
             <div class="flex group">
               <a
-                href="#"
+                href="statistic.html"
                 class="px-3 py-2 text-indigo-400 hover:text-indigo-800"
               >
                 <span class="flex flex-col items-center">
@@ -133,7 +126,7 @@
       </div>
     </main>
     <script>
-      const base_url = "https://c4fd-114-125-110-24.ap.ngrok.io";
+      const base_url = "http://localhost:8000";
       fetch(`${base_url}/student/presences/`, {
         headers: {
           Authorization: "Token 111e5bd4f219e4865121bf78d1b1370a1190f0ec",
@@ -167,7 +160,7 @@
             </h2>
           </div>
           <div class="flex justify-end mt-4">
-            <a id="teacher" href="#" class="text-sm font-medium text-white">
+            <a id="teacher"  href="statistic.html" class="text-sm font-medium text-white">
               ${kelas.teacher}
             </a>
           </div>

@@ -1,4 +1,4 @@
-fetch("https://c4fd-114-125-110-24.ap.ngrok.io/student/", {
+fetch("http://localhost:8000/student/", {
   headers: {
     Authorization: "Token 111e5bd4f219e4865121bf78d1b1370a1190f0ec",
   },

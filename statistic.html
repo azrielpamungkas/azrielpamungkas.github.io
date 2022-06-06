@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="node_modules/progressbar.js/dist/progressbar.js"></script>
+    <title>Statistic - SiAmaWolu</title>
+  </head>
+  <body class="mx-auto overflow-y-hidden min-w-[320px] max-w-[420px]">
+    <main class="bg-[#EBEBFF] py-5 px-5 h-screen overflow-y-scroll">
+      <div
+        id="circular__bar"
+        class="mx-auto relative h-[260px] w-[260px]"
+      ></div>
+
+      <div class="mt-10 flex items-center justify-center w-auto">
+        <!-- Navigation Bar -->
+        <div class="bg-white shadow-lg py-9 rounded-2xl">
+          <div class="flex pl-[8%] flex-row space-x-5">
+            <!-- Item #1 -->
+            <div class="flex group">
+              <a class="px-3 py-2 text-gray-400 hover:text-gray-800">
+                <span class="flex flex-col items-center">
+                  <!-- Title -->
+                  <span class="mx-1 text-xs text-gray-400">HADIR</span>
+
+                  <!-- Text -->
+                  <span
+                    id="hadir"
+                    class="text-black text-xl mb-2 transition-all duration-200"
+                  >
+                  </span>
+                </span>
+              </a>
+            </div>
+
+            <!-- Item #2 -->
+            <div class="flex group">
+              <a class="px-3 py-2 text-gray-400 hover:text-gray-800">
+                <span class="flex flex-col items-center">
+                  <!-- Title -->
+                  <span class="mx-1 text-xs text-gray-400">IJIN</span>
+
+                  <!-- Text -->
+                  <span
+                    id="ijin"
+                    class="text-black text-xl mb-2 transition-all duration-200"
+                  >
+                  </span>
+                </span>
+              </a>
+            </div>
+
+            <!-- Item #3 -->
+            <div class="flex group">
+              <a class="px-3 py-2 text-gray-400 hover:text-gray-800">
+                <span class="flex flex-col items-center">
+                  <!-- Title -->
+                  <span class="mx-1 text-xs text-gray-400">SAKIT</span>
+
+                  <!-- Text -->
+                  <span
+                    id="sakit"
+                    class="text-black text-xl mb-2 transition-all duration-200"
+                  >
+                  </span>
+                </span>
+              </a>
+            </div>
+
+            <!-- Item #4 -->
+            <div class="flex group">
+              <a class="px-3 py-2 text-gray-400 hover:text-gray-800">
+                <span class="flex flex-col items-center">
+                  <!-- Title -->
+                  <span class="mx-1 text-xs text-gray-400">TP. KET</span>
+
+                  <!-- Text -->
+                  <span
+                    id="alpha"
+                    class="text-black text-xl mb-2 transition-all duration-200"
+                  >
+                  </span>
+                </span>
+              </a>
+            </div>
+
+            <!-- a -->
+          </div>
+          <p class="px-[12%] text-sm pb-3">
+            Kehadiranmu telah mencapai zona <strong id="status"></strong>, terus
+            tingkatkan dan jangan sampai terlambat absen!
+          </p>
+        </div>
+      </div>
+
+      <!-- MDI Icons -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css"
+      />
+
+      <div class="flex items-center justify-center w-full">
+        <!-- Navigation Bar -->
+        <div class="fixed bottom-2 px-2 bg-white shadow-lg rounded-2xl">
+          <div class="flex flex-row space-x-6">
+            <!-- Item #1 -->
+            <div class="flex group">
+              <a
+                href="index.html"
+                class="px-3 py-2 text-indigo-400 hover:text-indigo-800"
+              >
+                <span class="flex flex-col items-center">
+                  <!-- Icon -->
+                  <i
+                    class="mdi mdi-home-outline mdi-24px mx-1 text-indigo-400 group-hover:text-indigo-800 transition-color duration-200"
+                  ></i>
+
+                  <!-- Text -->
+                  <span class="text-xs mb-2 transition-all duration-200">
+                    Home
+                  </span>
+
+                  <!-- Focus Dot -->
+                  <span
+                    class="h-2 w-2 rounded-full group-hover:bg-indigo-500 hover:h-3 hover:w-3 transition-all duration-150 delay-100"
+                  ></span>
+                </span>
+              </a>
+            </div>
+
+            <!-- Item #2 -->
+            <div class="flex group">
+              <a
+                href="presence.html"
+                class="px-3 py-2 text-indigo-400 hover:text-indigo-800"
+              >
+                <span class="flex flex-col items-center">
+                  <!-- Icon -->
+                  <i
+                    class="mdi mdi-note-edit-outline mdi-24px mx-1 text-indigo-400 group-hover:text-indigo-800 transition-color duration-200"
+                  ></i>
+
+                  <!-- Text -->
+                  <span class="text-xs mb-2 transition-all duration-200">
+                    Presence
+                  </span>
+
+                  <!-- Focus Dot -->
+                  <span
+                    class="h-2 w-2 rounded-full group-hover:bg-indigo-500 transition-all duration-150 delay-100"
+                  ></span>
+                </span>
+              </a>
+            </div>
+
+            <!-- Item #3 Active -->
+            <div class="flex group">
+              <a
+                href="statistic.html"
+                class="px-3 py-2 text-indigo-800 hover:text-indigo-800"
+              >
+                <span class="flex flex-col items-center">
+                  <!-- Icon -->
+                  <i
+                    class="mdi mdi-signal-cellular-outline mdi-24px mx-1 text-indigo-800 group-hover:text-indigo-800 transition-color duration-200"
+                  ></i>
+
+                  <!-- Text -->
+                  <span class="text-xs mb-2 transition-all duration-200">
+                    Statistic
+                  </span>
+
+                  <!-- Focus Dot -->
+                  <span
+                    class="h-1 w-4 bg-indigo-500 rounded-full group-hover:bg-indigo-500 transition-all duration-150 delay-100"
+                  ></span>
+                </span>
+              </a>
+            </div>
+
+            <!-- Item #5 -->
+            <div class="flex group">
+              <a
+                href="account.html"
+                class="px-3 py-2 text-indigo-400 hover:text-indigo-800"
+              >
+                <span class="flex flex-col items-center">
+                  <!-- Icon -->
+                  <i
+                    class="mdi mdi-account-circle-outline mdi-24px mx-1 text-indigo-400 group-hover:text-indigo-800 transition-color duration-200"
+                  ></i>
+
+                  <!-- Text -->
+                  <span class="text-xs mb-2 transition-all duration-200">
+                    Account
+                  </span>
+
+                  <!-- Focus Dot -->
+                  <span
+                    class="h-2 w-2 rounded-full group-hover:bg-indigo-500 transition-all duration-150 delay-100"
+                  ></span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      // progressbar.js@1.0.0 version is used
+      // Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
+
+      var bar = new ProgressBar.Circle(circular__bar, {
+        color: "#aaa",
+        // This has to be the same size as the maximum width to
+        // prevent clipping
+        strokeWidth: 4,
+        trailWidth: 1,
+        easing: "easeInOut",
+        duration: 1400,
+        text: {
+          autoStyleContainer: false,
+        },
+        from: { color: "#e65332", width: 1 },
+        to: { color: "#6ee632", width: 4 },
+        // Set default step function for all animate calls
+        step: function (state, circle) {
+          circle.path.setAttribute("stroke", state.color);
+          circle.path.setAttribute("stroke-width", state.width);
+
+          var value = Math.round(circle.value() * 100);
+          if (value === 0) {
+            circle.setText("");
+          } else {
+            circle.setText(value + "%");
+          }
+        },
+      });
+      const base_url = "http://localhost:8000";
+      fetch(`${base_url}/student/statistic/`, {
+        headers: {
+          Authorization: "Token 111e5bd4f219e4865121bf78d1b1370a1190f0ec",
+        },
+      })
+        .then(function (response) {
+          // The API call was successful!
+          if (response.ok) {
+            return response.json();
+          } else {
+            return Promise.reject(response);
+          }
+        })
+        .then(function (data) {
+          // This is the JSON from our response
+          console.log(data.data);
+          bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+          bar.text.style.fontSize = "2rem";
+          (document.getElementById("hadir").innerText =
+            data.data.hadir * 100 + "%"),
+            (document.getElementById("ijin").innerText =
+              data.data.ijin * 100 + "%"),
+            (document.getElementById("sakit").innerText =
+              data.data.sakit * 100 + "%"),
+            (document.getElementById("alpha").innerText =
+              data.data.alpha * 100 + "%");
+
+          if (data.data.kehadiran <= 1.0 && data.data.kehadiran >= 0.85) {
+            document.getElementById("status").innerText = "Aman";
+          } else if (
+            data.data.kehadiran <= 0.85 &&
+            data.data.kehadiran >= 0.75
+          ) {
+            document.getElementById("status").innerText = "Rentan";
+          } else {
+            document.getElementById("status").innerText = "Bahaya";
+          }
+          bar.animate(data.data.kehadiran); // Number from 0.0 to 1.0
+        })
+        .catch(function (err) {
+          // There was an error
+          console.warn("Something went wrong.", err);
+        });
+    </script>
+  </body>
+</html>

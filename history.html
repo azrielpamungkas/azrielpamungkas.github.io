@@ -12,13 +12,6 @@
       rel="stylesheet"
       href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
   </head>
   <body class="mx-auto overflow-y-hidden min-w-[320px] max-w-[420px]">
     <a href="index.html" class="flex back bg-[#6A64F1] h-10">
@@ -30,7 +23,7 @@
         <div class="flex justify-center"></div>
 
         <div class="mt-5">
-          <h1 class="font-bold text-center text-3xl text-gray-900">
+          <h1 class="font-bold text-sm text-center text-3xl text-gray-900">
             Riwayat Absensi
           </h1>
 
@@ -44,7 +37,7 @@
       </div>
     </main>
     <script>
-      const base_url = "https://c4fd-114-125-110-24.ap.ngrok.io";
+      const base_url = "http://localhost:8000";
       fetch(`${base_url}/student/history/`, {
         headers: {
           Authorization: "Token 111e5bd4f219e4865121bf78d1b1370a1190f0ec",
