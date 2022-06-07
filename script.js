@@ -1,4 +1,4 @@
-fetch("http://18.141.198.210:8000/student/", {
+fetch("https://bb90-18-141-198-210.ap.ngrok.io/student/", {
   headers: {
     Authorization: "Token 2171ed5591d71b24e7b88158412aadd9b2a6c1a5",
   },
